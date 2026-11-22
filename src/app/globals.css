@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/*
+ * Colour tokens
+ * -------------
+ * We name colours by their *job* (background, muted text, accent...),
+ * not by their value. Components use classes like `bg-background`,
+ * `text-muted`, `text-accent`, and the right colour is picked
+ * automatically for light or dark mode.
+ */
+
+/* Light mode (default) */
+:root {
+  --background: #ffffff; /* page background */
+  --foreground: #171717; /* main text */
+  --muted: #525252; /* secondary text (dates, captions) */
+  --surface: #f5f5f5; /* cards, chips */
+  --border: #e5e5e5; /* dividers, card borders */
+  --accent: #1f3a5f; /* deep blue: links, buttons, highlights */
+  --accent-foreground: #ffffff; /* text on top of accent */
+}
+
+/*
+ * Dark mode is applied in two cases:
+ * 1. The visitor's system is set to dark (and they have not picked light).
+ * 2. The `dark` class is on <html> (added by next-themes on Day 4).
+ */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --muted: #a3a3a3;
+    --surface: #171717;
+    --border: #262626;
+    --accent: #8ab4f8;
+    --accent-foreground: #0a0a0a;
+  }
+}
+
+:root.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --muted: #a3a3a3;
+  --surface: #171717;
+  --border: #262626;
+  --accent: #8ab4f8;
+  --accent-foreground: #0a0a0a;
+}
+
+/* Turn the variables above into Tailwind utilities (bg-*, text-*, border-*). */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --font-sans: var(--font-geist-sans);
+}
