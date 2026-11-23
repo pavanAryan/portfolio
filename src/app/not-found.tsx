@@ -8,10 +8,11 @@ import { ArrowLeft } from "lucide-react";
 import { profile } from "@/data/profile";
 import { primaryButton, secondaryButton } from "@/components/ui/buttonStyles";
 
-const { notFound, basics } = profile;
+const { notFound } = profile;
 
+// The layout's title template turns this into "Page not found – Pavan Kumar M.G."
 export const metadata: Metadata = {
-  title: `${notFound.title} – ${basics.name}`,
+  title: notFound.title,
 };
 
 export default function NotFound() {

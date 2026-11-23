@@ -9,6 +9,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { profile } from "@/data/profile";
+import { sharedOpenGraph } from "@/lib/metadata";
 import { ChipList } from "@/components/ui/ChipList";
 import { ProjectTypeBadge } from "@/components/ui/ProjectTypeBadge";
 
@@ -22,7 +23,7 @@ export function generateStaticParams() {
   return profile.projects.map((project) => ({ slug: project.slug }));
 }
 
-// Sets the browser tab title and search description for each project.
+// Sets the tab title, search description and link preview for each project.
 export async function generateMetadata({
   params,
 }: PageProps<"/projects/[slug]">): Promise<Metadata> {
@@ -30,9 +31,27 @@ export async function generateMetadata({
   const project = getProject(slug);
   if (!project) return {};
 
+  const url = `/projects/${project.slug}`;
+
   return {
-    title: `${project.title} – ${profile.basics.name}`,
+    // The layout's title template adds " – Pavan Kumar M.G." automatically.
+    title: project.title,
     description: project.summary,
+    alternates: { canonical: url },
+    // openGraph/twitter here *replace* the layout's, so the shared fields
+    // (site name, locale) are spread back in.
+    openGraph: {
+      ...sharedOpenGraph,
+      type: "article",
+      url,
+      title: project.title,
+      description: project.summary,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.summary,
+    },
   };
 }
 

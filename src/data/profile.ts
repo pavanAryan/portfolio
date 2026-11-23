@@ -18,6 +18,25 @@ export const profile: Profile = {
       "Senior Software Engineer and Full Stack Developer with 7+ years of experience building enterprise web and mobile applications. Strong frontend expertise in React, React Native, TypeScript and JavaScript, with experience in micro-frontends, data-intensive AG Grid interfaces, state management and offline-first mobile apps. Hands-on backend experience with Python, FastAPI, SQLModel, PostgreSQL and Alembic on a commodity trading platform. Currently learning LLM application development with LangChain and LangGraph.",
   },
 
+  seo: {
+    description:
+      "Senior Software Engineer and Full Stack Developer in Bengaluru with 7+ years building enterprise web and mobile apps with React, React Native, TypeScript and Python.",
+    keywords: [
+      "Pavan Kumar M.G.",
+      "Senior Software Engineer",
+      "Full Stack Developer",
+      "React Developer",
+      "React Native Developer",
+      "TypeScript",
+      "Python",
+      "FastAPI",
+      "Bengaluru",
+      "Portfolio",
+    ],
+    locale: "en_IN",
+    ogHighlights: ["React", "React Native", "TypeScript", "Python"],
+  },
+
   ui: {
     downloadResume: "Download Resume",
     linkedin: "LinkedIn",
@@ -37,6 +56,7 @@ export const profile: Profile = {
       challenges: "Challenges",
       tech: "Tech Stack",
       backToProjects: "Back to projects",
+      ogLabel: "Case study",
     },
   },
 

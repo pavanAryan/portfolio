@@ -105,6 +105,8 @@ export type UiLabels = {
     challenges: string;
     tech: string;
     backToProjects: string;
+    /** Small label at the top of a project's link-preview image. */
+    ogLabel: string;
   };
 };
 
@@ -151,8 +153,20 @@ export type NotFoundContent = {
   projectsLink: string;
 };
 
+/** Search engine and link-preview text. */
+export type SeoContent = {
+  /** ~150–160 characters: shown under the title in Google and in link previews. */
+  description: string;
+  keywords: string[];
+  /** Open Graph locale, e.g. "en_IN". */
+  locale: string;
+  /** Short skills line shown on the link-preview image. */
+  ogHighlights: string[];
+};
+
 export type Profile = {
   basics: Basics;
+  seo: SeoContent;
   ui: UiLabels;
   notFound: NotFoundContent;
   contact: ContactContent;

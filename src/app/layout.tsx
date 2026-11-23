@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { profile } from "@/data/profile";
+import { sharedOpenGraph, siteUrl } from "@/lib/metadata";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MotionProvider } from "@/components/ui/MotionProvider";
@@ -15,13 +16,44 @@ const geistSans = Geist({
   display: "swap",
 });
 
-const { name, title, tagline } = profile.basics;
+const { name, title } = profile.basics;
+const { description, keywords } = profile.seo;
+const homeTitle = `${name} – ${title}`;
 
-// Shown in the browser tab and in Google search results.
-// Full SEO (Open Graph, Twitter, etc.) is added on Day 5.
+// Site-wide metadata: <title>, description, and the tags LinkedIn, WhatsApp,
+// X (Twitter) and Google read to build search results and link previews.
 export const metadata: Metadata = {
-  title: `${name} – ${title}`,
-  description: tagline,
+  // Lets every other field use short paths like "/" instead of full URLs.
+  metadataBase: new URL(siteUrl),
+
+  title: {
+    // Used on the home page (and any page that doesn't set its own title).
+    default: homeTitle,
+    // Other pages set just their own part, e.g. "Page not found",
+    // and %s is replaced: "Page not found – Pavan Kumar M.G."
+    template: `%s – ${name}`,
+  },
+  description,
+  keywords,
+  authors: [{ name, url: siteUrl }],
+  creator: name,
+
+  // Open Graph: the preview card on LinkedIn, WhatsApp, Slack, Facebook.
+  // The preview image is added in the next step (app/opengraph-image.tsx).
+  openGraph: {
+    ...sharedOpenGraph,
+    type: "website",
+    url: "/",
+    title: homeTitle,
+    description,
+  },
+
+  // X (Twitter) card: "summary_large_image" = big image above the title.
+  twitter: {
+    card: "summary_large_image",
+    title: homeTitle,
+    description,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
