@@ -13,7 +13,7 @@ export const profile: Profile = {
     // githubUrl: "", // add later – the GitHub link stays hidden until then
     resumeUrl: "/resume.pdf",
     tagline:
-      "I build fast, reliable web and mobile apps with React, React Native, TypeScript and Python.",
+      "I build fast, reliable web and mobile apps with React, React Native, Javascript, TypeScript, Python and FastA.",
     summary:
       "Senior Software Engineer and Full Stack Developer with 7+ years of experience building enterprise web and mobile applications. Strong frontend expertise in React, React Native, TypeScript and JavaScript, with experience in micro-frontends, data-intensive AG Grid interfaces, state management and offline-first mobile apps. Hands-on backend experience with Python, FastAPI, SQLModel, PostgreSQL and Alembic on a commodity trading platform. Currently learning LLM application development with LangChain and LangGraph.",
   },
