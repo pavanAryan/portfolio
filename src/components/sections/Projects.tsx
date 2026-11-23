@@ -1,8 +1,8 @@
 // Server component: responsive grid of project cards.
 
 import { profile } from "@/data/profile";
-import { Section } from "@/components/Section";
-import { ProjectCard } from "@/components/ProjectCard";
+import { Section } from "@/components/ui/Section";
+import { ProjectCard } from "@/components/ui/ProjectCard";
 
 export function Projects() {
   // Personal projects first, then work projects. Order within each group

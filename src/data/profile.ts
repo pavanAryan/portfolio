@@ -23,6 +23,9 @@ export const profile: Profile = {
     linkedin: "LinkedIn",
     contact: "Contact",
     opensInNewTab: "(opens in a new tab)",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    toggleTheme: "Toggle dark mode",
     readCaseStudy: "Read case study",
     githubRepo: "GitHub",
     liveSite: "Live site",
@@ -34,6 +37,31 @@ export const profile: Profile = {
       challenges: "Challenges",
       tech: "Tech Stack",
       backToProjects: "Back to projects",
+    },
+  },
+
+  contact: {
+    intro:
+      "I'm open to new opportunities, remote or on-site. The quickest way to reach me is email or LinkedIn, or send a message with the form below.",
+    emailLabel: "Email",
+    linkedinLabel: "LinkedIn",
+    form: {
+      nameLabel: "Name",
+      emailLabel: "Email",
+      messageLabel: "Message",
+      submit: "Send message",
+      submitting: "Sending...",
+      success: "Thanks for your message! I'll get back to you soon.",
+      error: "Sorry, something went wrong. Please try again, or email me directly.",
+      unavailable:
+        "The contact form is not available right now. Please email me directly.",
+    },
+    validation: {
+      nameRequired: "Please enter your name.",
+      emailRequired: "Please enter your email address.",
+      emailInvalid: "Please enter a valid email address.",
+      messageRequired: "Please enter a message.",
+      messageTooShort: "Please write at least 10 characters.",
     },
   },
 

@@ -1,7 +1,7 @@
 // Server component: just renders the About paragraphs from profile.ts.
 
 import { profile } from "@/data/profile";
-import { Section } from "@/components/Section";
+import { Section } from "@/components/ui/Section";
 
 export function About() {
   return (

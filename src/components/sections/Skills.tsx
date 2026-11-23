@@ -1,8 +1,8 @@
 // Server component: skills grouped by category, shown as chips.
 
 import { profile } from "@/data/profile";
-import { Section } from "@/components/Section";
-import { ChipList } from "@/components/ChipList";
+import { Section } from "@/components/ui/Section";
+import { ChipList } from "@/components/ui/ChipList";
 
 export function Skills() {
   return (

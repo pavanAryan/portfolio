@@ -6,14 +6,17 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import type { NavLink } from "@/types";
+import type { NavLink, UiLabels } from "@/types";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 type NavbarProps = {
   name: string;
   links: NavLink[];
+  /** Only the labels the navbar needs, not the whole profile. */
+  labels: Pick<UiLabels, "openMenu" | "closeMenu" | "toggleTheme">;
 };
 
-export function Navbar({ name, links }: NavbarProps) {
+export function Navbar({ name, links, labels }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -58,35 +61,40 @@ export function Navbar({ name, links }: NavbarProps) {
           {name}
         </Link>
 
-        {/* Desktop links: hidden on small screens */}
-        <ul className="hidden items-center gap-6 md:flex">
-          {links.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="rounded-sm text-sm text-muted transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-2 md:gap-4">
+          {/* Desktop links: hidden on small screens */}
+          <ul className="hidden items-center gap-6 md:flex">
+            {links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="rounded-sm text-sm text-muted transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-        {/* Hamburger button: only on small screens */}
-        <button
-          type="button"
-          onClick={() => setIsMenuOpen((open) => !open)}
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-menu"
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="-mr-2 rounded-md p-2 text-foreground hover:bg-surface focus-visible:outline-2 focus-visible:outline-accent md:hidden"
-        >
-          {isMenuOpen ? (
-            <X className="size-6" aria-hidden="true" />
-          ) : (
-            <Menu className="size-6" aria-hidden="true" />
-          )}
-        </button>
+          {/* Shown on every screen size */}
+          <ThemeToggle label={labels.toggleTheme} />
+
+          {/* Hamburger button: only on small screens */}
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen((open) => !open)}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label={isMenuOpen ? labels.closeMenu : labels.openMenu}
+            className="-mr-2 rounded-md p-2 text-foreground hover:bg-surface focus-visible:outline-2 focus-visible:outline-accent md:hidden"
+          >
+            {isMenuOpen ? (
+              <X className="size-6" aria-hidden="true" />
+            ) : (
+              <Menu className="size-6" aria-hidden="true" />
+            )}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu: drops down under the bar when open */}

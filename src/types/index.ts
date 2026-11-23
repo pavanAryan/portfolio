@@ -88,6 +88,10 @@ export type UiLabels = {
   contact: string;
   /** Read by screen readers after links that open in a new tab. */
   opensInNewTab: string;
+  /** aria-labels for the icon-only navbar buttons. */
+  openMenu: string;
+  closeMenu: string;
+  toggleTheme: string;
   readCaseStudy: string;
   githubRepo: string;
   liveSite: string;
@@ -113,9 +117,35 @@ export type SectionTitles = {
   contact: string;
 };
 
+/** All text for the Contact section and its form. */
+export type ContactContent = {
+  intro: string;
+  emailLabel: string;
+  linkedinLabel: string;
+  form: {
+    nameLabel: string;
+    emailLabel: string;
+    messageLabel: string;
+    submit: string;
+    submitting: string;
+    success: string;
+    error: string;
+    /** Shown instead of the form when the Formspree ID is missing. */
+    unavailable: string;
+  };
+  validation: {
+    nameRequired: string;
+    emailRequired: string;
+    emailInvalid: string;
+    messageRequired: string;
+    messageTooShort: string;
+  };
+};
+
 export type Profile = {
   basics: Basics;
   ui: UiLabels;
+  contact: ContactContent;
   sectionTitles: SectionTitles;
   /** Links shown in the navbar. */
   navLinks: NavLink[];

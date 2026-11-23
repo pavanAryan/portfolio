@@ -1,7 +1,7 @@
 // Server component: vertical timeline of roles from profile.ts.
 
 import { profile } from "@/data/profile";
-import { Section } from "@/components/Section";
+import { Section } from "@/components/ui/Section";
 
 export function Experience() {
   return (

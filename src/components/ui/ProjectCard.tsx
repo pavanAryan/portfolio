@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Project, UiLabels } from "@/types";
-import { ChipList } from "@/components/ChipList";
-import { ProjectTypeBadge } from "@/components/ProjectTypeBadge";
+import { ChipList } from "@/components/ui/ChipList";
+import { ProjectTypeBadge } from "@/components/ui/ProjectTypeBadge";
 
 // Show at most this many tech chips on a card; the rest become "+N".
 // The full list is on the case study page.

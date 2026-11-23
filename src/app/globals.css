@@ -1,6 +1,13 @@
 @import "tailwindcss";
 
 /*
+ * Make Tailwind's `dark:` prefix follow the `dark` class that next-themes
+ * puts on <html>, instead of only the system setting. Used by the theme
+ * toggle to show the right icon.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
  * Colour tokens
  * -------------
  * We name colours by their *job* (background, muted text, accent...),
@@ -18,6 +25,7 @@
   --border: #e5e5e5; /* dividers, card borders */
   --accent: #1f3a5f; /* deep blue: links, buttons, highlights */
   --accent-foreground: #ffffff; /* text on top of accent */
+  --danger: #b91c1c; /* form error messages */
 }
 
 /*
@@ -34,6 +42,7 @@
     --border: #262626;
     --accent: #8ab4f8;
     --accent-foreground: #0a0a0a;
+    --danger: #f87171;
   }
 }
 
@@ -45,6 +54,7 @@
   --border: #262626;
   --accent: #8ab4f8;
   --accent-foreground: #0a0a0a;
+  --danger: #f87171;
 }
 
 /* Turn the variables above into Tailwind utilities (bg-*, text-*, border-*). */
@@ -56,6 +66,7 @@
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-danger: var(--danger);
 
   --font-sans: var(--font-geist-sans);
 }

@@ -9,8 +9,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { profile } from "@/data/profile";
-import { ChipList } from "@/components/ChipList";
-import { ProjectTypeBadge } from "@/components/ProjectTypeBadge";
+import { ChipList } from "@/components/ui/ChipList";
+import { ProjectTypeBadge } from "@/components/ui/ProjectTypeBadge";
 
 function getProject(slug: string) {
   return profile.projects.find((project) => project.slug === slug);
