@@ -35,7 +35,14 @@ export const profile: Profile = {
       "Portfolio",
     ],
     locale: "en_IN",
-    ogHighlights: ["React", "React Native", "TypeScript", "Python"],
+    ogHighlights: [
+      "React",
+      "React Native",
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "FastAPI",
+    ],
   },
 
   ui: {
