@@ -17,7 +17,8 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="mx-auto max-w-3xl px-4 pt-20 pb-16 sm:pt-28 sm:pb-24"
+      // max-w-5xl matches the navbar, so the h1 lines up with the logo name.
+      className="mx-auto max-w-5xl px-4 pt-20 pb-16 sm:pt-28 sm:pb-24"
     >
       <h1
         id="hero-heading"

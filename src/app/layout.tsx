@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { profile } from "@/data/profile";
 import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import "./globals.css";
 
 // One font family for the whole site. next/font downloads it at build time
@@ -37,12 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {/* flex-1 makes main fill the space, so the footer stays at the bottom */}
         <main className="flex-1">{children}</main>
 
-        {/* Footer placeholder – replaced by <Footer /> on Day 2 */}
-        <footer className="border-t border-border">
-          <div className="mx-auto max-w-5xl px-4 py-6 text-sm text-muted">
-            {name}
-          </div>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
