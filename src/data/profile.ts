@@ -40,6 +40,15 @@ export const profile: Profile = {
     },
   },
 
+  notFound: {
+    code: "404",
+    title: "Page not found",
+    message:
+      "Sorry, the page you're looking for doesn't exist or has been moved.",
+    homeLink: "Back to home",
+    projectsLink: "View projects",
+  },
+
   contact: {
     intro:
       "I'm open to new opportunities, remote or on-site. The quickest way to reach me is email or LinkedIn, or send a message with the form below.",

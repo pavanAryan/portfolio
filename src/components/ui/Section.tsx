@@ -2,6 +2,7 @@
 // The `id` is what the navbar anchor links (e.g. "/#about") jump to.
 
 import type { ReactNode } from "react";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 type SectionProps = {
   id: string;
@@ -27,13 +28,16 @@ export function Section({ id, title, width = "text", children }: SectionProps) {
     >
       {/* Thin divider line, then generous vertical space */}
       <div className="border-t border-border py-16 sm:py-20">
-        <h2
-          id={headingId}
-          className="text-2xl font-bold tracking-tight sm:text-3xl"
-        >
-          {title}
-        </h2>
-        <div className={`mt-8 ${contentWidth}`}>{children}</div>
+        {/* The divider stays put; the heading and content fade in on scroll */}
+        <FadeIn>
+          <h2
+            id={headingId}
+            className="text-2xl font-bold tracking-tight sm:text-3xl"
+          >
+            {title}
+          </h2>
+          <div className={`mt-8 ${contentWidth}`}>{children}</div>
+        </FadeIn>
       </div>
     </section>
   );

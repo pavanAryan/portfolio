@@ -5,6 +5,7 @@
 
 import { useState, type FormEvent } from "react";
 import type { ContactContent } from "@/types";
+import { primaryButton } from "@/components/ui/buttonStyles";
 
 type ContactFormProps = {
   /** Formspree form ID, e.g. "xyzabcd". The form is hidden if missing. */
@@ -126,7 +127,7 @@ export function ContactForm({ formId, text, validation }: ContactFormProps) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex items-center justify-center rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-60"
+          className={primaryButton}
         >
           {isSubmitting ? text.submitting : text.submit}
         </button>

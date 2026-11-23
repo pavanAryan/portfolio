@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import { profile } from "@/data/profile";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { MotionProvider } from "@/components/ui/MotionProvider";
 import "./globals.css";
 
 // One font family for the whole site. next/font downloads it at build time
@@ -37,6 +38,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} h-full scroll-pt-16 scroll-smooth antialiased motion-reduce:scroll-auto`}
     >
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
+        {/* Animated sections start invisible and are faded in by JavaScript.
+            If JavaScript is off, this rule shows them straight away. */}
+        <noscript>
+          <style>{"[data-fade]{opacity:1!important;transform:none!important}"}</style>
+        </noscript>
+
         {/* ThemeProvider:
             - attribute="class": puts class="dark" or "light" on <html>
             - defaultTheme="system" + enableSystem: follow the device setting
@@ -62,7 +69,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           />
 
           {/* flex-1 makes main fill the space, so the footer stays at the bottom */}
-          <main className="flex-1">{children}</main>
+          <main className="flex-1">
+            <MotionProvider>{children}</MotionProvider>
+          </main>
 
           <Footer />
         </ThemeProvider>

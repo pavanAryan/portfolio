@@ -2,12 +2,7 @@
 
 import { ArrowUpRight, Download, Mail, MapPin } from "lucide-react";
 import { profile } from "@/data/profile";
-
-// Shared button styles. Focus outline is visible for keyboard users.
-const buttonBase =
-  "inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
-const primaryButton = `${buttonBase} bg-accent text-accent-foreground hover:opacity-90`;
-const secondaryButton = `${buttonBase} border border-border text-foreground hover:border-accent hover:text-accent`;
+import { primaryButton, secondaryButton } from "@/components/ui/buttonStyles";
 
 export function Hero() {
   const { name, title, tagline, location, availability, linkedinUrl, resumeUrl } =

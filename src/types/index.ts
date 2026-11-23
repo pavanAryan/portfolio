@@ -142,9 +142,19 @@ export type ContactContent = {
   };
 };
 
+/** Text for the custom 404 page. */
+export type NotFoundContent = {
+  code: string;
+  title: string;
+  message: string;
+  homeLink: string;
+  projectsLink: string;
+};
+
 export type Profile = {
   basics: Basics;
   ui: UiLabels;
+  notFound: NotFoundContent;
   contact: ContactContent;
   sectionTitles: SectionTitles;
   /** Links shown in the navbar. */
