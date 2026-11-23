@@ -10,6 +10,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { profile } from "@/data/profile";
 import { sharedOpenGraph } from "@/lib/metadata";
+import { ogSize, projectOgAlt, projectOgImageUrl } from "@/lib/ogImage";
 import { ChipList } from "@/components/ui/ChipList";
 import { ProjectTypeBadge } from "@/components/ui/ProjectTypeBadge";
 
@@ -32,6 +33,12 @@ export async function generateMetadata({
   if (!project) return {};
 
   const url = `/projects/${project.slug}`;
+  // This project's link-preview image (served by ./og/route.tsx).
+  const image = {
+    url: projectOgImageUrl(project),
+    alt: projectOgAlt(project),
+    ...ogSize,
+  };
 
   return {
     // The layout's title template adds " – Pavan Kumar M.G." automatically.
@@ -46,11 +53,13 @@ export async function generateMetadata({
       url,
       title: project.title,
       description: project.summary,
+      images: [image],
     },
     twitter: {
       card: "summary_large_image",
       title: project.title,
       description: project.summary,
+      images: [image],
     },
   };
 }

@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { profile } from "@/data/profile";
 import { sharedOpenGraph, siteUrl } from "@/lib/metadata";
+import { homeOgAlt, homeOgImageUrl, ogSize } from "@/lib/ogImage";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MotionProvider } from "@/components/ui/MotionProvider";
@@ -19,6 +20,8 @@ const geistSans = Geist({
 const { name, title } = profile.basics;
 const { description, keywords } = profile.seo;
 const homeTitle = `${name} – ${title}`;
+// Link-preview image (served by app/og/route.tsx).
+const homeOgImage = { url: homeOgImageUrl(), alt: homeOgAlt, ...ogSize };
 
 // Site-wide metadata: <title>, description, and the tags LinkedIn, WhatsApp,
 // X (Twitter) and Google read to build search results and link previews.
@@ -39,13 +42,14 @@ export const metadata: Metadata = {
   creator: name,
 
   // Open Graph: the preview card on LinkedIn, WhatsApp, Slack, Facebook.
-  // The preview image is added in the next step (app/opengraph-image.tsx).
+  // The image URL carries a content fingerprint (see src/lib/ogImage.tsx).
   openGraph: {
     ...sharedOpenGraph,
     type: "website",
     url: "/",
     title: homeTitle,
     description,
+    images: [homeOgImage],
   },
 
   // X (Twitter) card: "summary_large_image" = big image above the title.
@@ -53,6 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: homeTitle,
     description,
+    images: [homeOgImage],
   },
 };
 

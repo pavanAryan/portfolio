@@ -34,9 +34,9 @@ src/
 ├── app/                      # Routes (pages) and metadata files
 │   ├── layout.tsx            # Site shell: navbar, footer, theme, SEO metadata
 │   ├── page.tsx              # Home page (all sections)
-│   ├── projects/[slug]/      # Case study pages + their preview images
+│   ├── projects/[slug]/      # Case study pages + their preview images (og/)
 │   ├── not-found.tsx         # Custom 404 page
-│   ├── opengraph-image.tsx   # Generated link-preview image
+│   ├── og/route.tsx          # Generated link-preview image (/og)
 │   ├── icon.tsx, apple-icon.tsx
 │   └── sitemap.ts, robots.ts
 ├── components/
@@ -44,7 +44,7 @@ src/
 │   ├── sections/             # Home page sections (Hero, About, ...)
 │   └── ui/                   # Reusable building blocks (Section, ChipList, ContactForm, ...)
 ├── data/profile.ts           # ALL site text and content (typed)
-├── lib/                      # Shared helpers (site URL, Open Graph settings)
+├── lib/                      # Shared helpers (site URL, preview-image design and URLs)
 └── types/index.ts            # TypeScript types for the content
 ```
 
