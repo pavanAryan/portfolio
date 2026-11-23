@@ -18,6 +18,29 @@ export const profile: Profile = {
       "Senior Software Engineer and Full Stack Developer with 7+ years of experience building enterprise web and mobile applications. Strong frontend expertise in React, React Native, TypeScript and JavaScript, with experience in micro-frontends, data-intensive AG Grid interfaces, state management and offline-first mobile apps. Hands-on backend experience with Python, FastAPI, SQLModel, PostgreSQL and Alembic on a commodity trading platform. Currently learning LLM application development with LangChain and LangGraph.",
   },
 
+  ui: {
+    downloadResume: "Download Resume",
+    linkedin: "LinkedIn",
+    contact: "Contact",
+    opensInNewTab: "(opens in a new tab)",
+  },
+
+  sectionTitles: {
+    about: "About",
+    experience: "Experience",
+    projects: "Projects",
+    skills: "Skills",
+    contact: "Contact",
+  },
+
+  navLinks: [
+    { label: "About", href: "/#about" },
+    { label: "Experience", href: "/#experience" },
+    { label: "Projects", href: "/#projects" },
+    { label: "Skills", href: "/#skills" },
+    { label: "Contact", href: "/#contact" },
+  ],
+
   about: [
     "Hi, I'm Pavan. I'm a full stack developer in Bengaluru with over seven years of experience building web and mobile apps for enterprise teams.",
     "I'm happiest on the frontend, working with React, React Native and TypeScript on things like micro-frontends, data-heavy AG Grid screens and offline-first mobile apps. On my current team I also work on the backend, building APIs with Python, FastAPI and PostgreSQL for a commodity trading platform.",

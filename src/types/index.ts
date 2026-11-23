@@ -75,8 +75,36 @@ export type Award = {
   year: number;
 };
 
+export type NavLink = {
+  label: string;
+  /** Link target, e.g. "/#about". The leading "/" makes it work from any page. */
+  href: string;
+};
+
+/** Short interface text (button labels, screen-reader hints) reused across components. */
+export type UiLabels = {
+  downloadResume: string;
+  linkedin: string;
+  contact: string;
+  /** Read by screen readers after links that open in a new tab. */
+  opensInNewTab: string;
+};
+
+/** Headings for the home page sections. */
+export type SectionTitles = {
+  about: string;
+  experience: string;
+  projects: string;
+  skills: string;
+  contact: string;
+};
+
 export type Profile = {
   basics: Basics;
+  ui: UiLabels;
+  sectionTitles: SectionTitles;
+  /** Links shown in the navbar. */
+  navLinks: NavLink[];
   /** About section paragraphs, first person. */
   about: string[];
   experience: Experience[];
