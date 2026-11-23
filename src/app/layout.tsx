@@ -88,6 +88,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           enableSystem
           disableTransitionOnChange
         >
+          {/* Skip link: the first thing a keyboard user reaches with Tab.
+              Hidden (sr-only) until focused, then shown in the top-left.
+              Lets them jump past the navbar straight to the content. */}
+          <a
+            href="#main"
+            // focus:px-4/py-2 come after not-sr-only, which resets padding to 0.
+            className="sr-only rounded-md bg-accent text-sm font-medium text-accent-foreground focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:px-4 focus:py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            {profile.ui.skipToContent}
+          </a>
+
           {/* Pass only the data the Navbar needs, so the whole profile
               isn't sent to the browser inside client-side JavaScript. */}
           <Navbar
@@ -101,7 +112,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           />
 
           {/* flex-1 makes main fill the space, so the footer stays at the bottom */}
-          <main className="flex-1">
+          {/* id="main" is the skip link's target. tabIndex={-1} lets focus
+              move here, so the next Tab continues inside the content. */}
+          <main id="main" tabIndex={-1} className="flex-1 outline-none">
             <MotionProvider>{children}</MotionProvider>
           </main>
 

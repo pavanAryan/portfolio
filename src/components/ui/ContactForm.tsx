@@ -165,7 +165,7 @@ function Field({ id, label, error, onInput, multiline, inputProps }: FieldProps)
     "aria-invalid": error ? true : undefined,
     "aria-describedby": error ? errorId : undefined,
     className: `block w-full rounded-md border bg-background px-3 py-2 text-foreground transition-colors focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-accent ${
-      error ? "border-danger" : "border-border"
+      error ? "border-danger" : "border-input-border"
     }`,
   };
 

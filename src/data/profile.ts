@@ -5,6 +5,7 @@ import type { Profile } from "@/types";
 export const profile: Profile = {
   basics: {
     name: "Pavan Kumar M.G.",
+    initials: "PK",
     title: "Senior Software Engineer | Full Stack Developer",
     location: "Bengaluru, India",
     availability: "Open to remote and relocation",
@@ -13,7 +14,7 @@ export const profile: Profile = {
     // githubUrl: "", // add later – the GitHub link stays hidden until then
     resumeUrl: "/resume.pdf",
     tagline:
-      "I build fast, reliable web and mobile apps with React, React Native, Javascript, TypeScript, Python and FastA.",
+      "I build fast, reliable web and mobile apps with React, React Native, JavaScript, TypeScript, Python and FastAPI.",
     summary:
       "Senior Software Engineer and Full Stack Developer with 7+ years of experience building enterprise web and mobile applications. Strong frontend expertise in React, React Native, TypeScript and JavaScript, with experience in micro-frontends, data-intensive AG Grid interfaces, state management and offline-first mobile apps. Hands-on backend experience with Python, FastAPI, SQLModel, PostgreSQL and Alembic on a commodity trading platform. Currently learning LLM application development with LangChain and LangGraph.",
   },
@@ -42,6 +43,7 @@ export const profile: Profile = {
     linkedin: "LinkedIn",
     contact: "Contact",
     opensInNewTab: "(opens in a new tab)",
+    skipToContent: "Skip to content",
     openMenu: "Open menu",
     closeMenu: "Close menu",
     toggleTheme: "Toggle dark mode",

@@ -26,6 +26,7 @@
   --accent: #1f3a5f; /* deep blue: links, buttons, highlights */
   --accent-foreground: #ffffff; /* text on top of accent */
   --danger: #b91c1c; /* form error messages */
+  --input-border: #8f8f8f; /* form field outlines (3:1 contrast, WCAG) */
 }
 
 /*
@@ -43,6 +44,7 @@
     --accent: #8ab4f8;
     --accent-foreground: #0a0a0a;
     --danger: #f87171;
+    --input-border: #6b6b6b;
   }
 }
 
@@ -55,6 +57,7 @@
   --accent: #8ab4f8;
   --accent-foreground: #0a0a0a;
   --danger: #f87171;
+  --input-border: #6b6b6b;
 }
 
 /* Turn the variables above into Tailwind utilities (bg-*, text-*, border-*). */
@@ -67,6 +70,7 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-danger: var(--danger);
+  --color-input-border: var(--input-border);
 
   --font-sans: var(--font-geist-sans);
 }

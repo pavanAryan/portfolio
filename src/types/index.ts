@@ -3,6 +3,8 @@
 
 export type Basics = {
   name: string;
+  /** Shown on the browser-tab icon (favicon), e.g. "PK". */
+  initials: string;
   title: string;
   location: string;
   /** Short note shown next to the location, e.g. "Open to remote and relocation". */
@@ -88,6 +90,8 @@ export type UiLabels = {
   contact: string;
   /** Read by screen readers after links that open in a new tab. */
   opensInNewTab: string;
+  /** Hidden link for keyboard users, shown when focused with Tab. */
+  skipToContent: string;
   /** aria-labels for the icon-only navbar buttons. */
   openMenu: string;
   closeMenu: string;
