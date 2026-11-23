@@ -23,6 +23,18 @@ export const profile: Profile = {
     linkedin: "LinkedIn",
     contact: "Contact",
     opensInNewTab: "(opens in a new tab)",
+    readCaseStudy: "Read case study",
+    githubRepo: "GitHub",
+    liveSite: "Live site",
+    projectTypes: { work: "Work", personal: "Personal" },
+    caseStudy: {
+      overview: "Overview",
+      role: "My Role",
+      contributions: "What I Built",
+      challenges: "Challenges",
+      tech: "Tech Stack",
+      backToProjects: "Back to projects",
+    },
   },
 
   sectionTitles: {

@@ -88,6 +88,20 @@ export type UiLabels = {
   contact: string;
   /** Read by screen readers after links that open in a new tab. */
   opensInNewTab: string;
+  readCaseStudy: string;
+  githubRepo: string;
+  liveSite: string;
+  /** Badge text on project cards, e.g. { work: "Work", personal: "Personal" }. */
+  projectTypes: Record<ProjectType, string>;
+  /** Headings and links on the /projects/[slug] case study page. */
+  caseStudy: {
+    overview: string;
+    role: string;
+    contributions: string;
+    challenges: string;
+    tech: string;
+    backToProjects: string;
+  };
 };
 
 /** Headings for the home page sections. */
