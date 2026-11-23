@@ -101,7 +101,15 @@ export const profile: Profile = {
     experience: "Experience",
     projects: "Projects",
     skills: "Skills",
+    credentials: "Awards & Education",
     contact: "Contact",
+  },
+
+  credentialLabels: {
+    awards: "Awards",
+    education: "Education",
+    certifications: "Certifications",
+    inProgress: "In progress",
   },
 
   navLinks: [

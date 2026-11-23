@@ -120,7 +120,17 @@ export type SectionTitles = {
   experience: string;
   projects: string;
   skills: string;
+  credentials: string;
   contact: string;
+};
+
+/** Group labels inside the Awards & Education section. */
+export type CredentialLabels = {
+  awards: string;
+  education: string;
+  certifications: string;
+  /** Small badge next to a certification that isn't finished yet. */
+  inProgress: string;
 };
 
 /** All text for the Contact section and its form. */
@@ -175,6 +185,7 @@ export type Profile = {
   notFound: NotFoundContent;
   contact: ContactContent;
   sectionTitles: SectionTitles;
+  credentialLabels: CredentialLabels;
   /** Links shown in the navbar. */
   navLinks: NavLink[];
   /** About section paragraphs, first person. */

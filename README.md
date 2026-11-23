@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pavan Kumar M.G. – Portfolio
 
-## Getting Started
+Personal portfolio of **Pavan Kumar M.G.**, Senior Software Engineer and Full Stack Developer (React, React Native, TypeScript, Python, FastAPI).
 
-First, run the development server:
+**Live site:** https://portfolio-pavankumarmg.vercel.app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Lighthouse (mobile, live site): **Performance 100 · Accessibility 100 · SEO 100**
+
+## Features
+
+- **Single-page portfolio** – Hero, About, Experience timeline, Projects, Skills, Awards & Education, Contact
+- **Case study pages** for each project (`/projects/[slug]`), statically generated at build time
+- **Contact form** via [Formspree](https://formspree.io) – client-side validation, loading/success/error states, honeypot spam protection, no page reload
+- **Dark / light mode** – follows the system setting, remembers the visitor's choice, no flash on load
+- **Subtle scroll animations** – respect the "Reduce motion" setting; animation code is lazy-loaded
+- **SEO** – full metadata, Open Graph and Twitter cards, generated preview images (one per project), `sitemap.xml`, `robots.txt`, generated favicon
+- **Accessible** – semantic HTML, skip link, visible focus states, labelled controls, WCAG AA colour contrast in both themes
+- **Content-driven** – all text lives in one typed file, so updating the site means editing data, not components
+
+## Tech stack
+
+| Area | Tools |
+| --- | --- |
+| Framework | [Next.js](https://nextjs.org) (App Router, Cache Components), React, TypeScript (strict) |
+| Styling | Tailwind CSS v4 (theme tokens in `globals.css`), Geist via `next/font` |
+| UI | `lucide-react` icons, `motion` (Framer Motion) for animations, `next-themes` |
+| Forms | Formspree |
+| Hosting | Vercel (auto-deploys from `main`) |
+
+## Project structure
+
+```
+src/
+├── app/                      # Routes (pages) and metadata files
+│   ├── layout.tsx            # Site shell: navbar, footer, theme, SEO metadata
+│   ├── page.tsx              # Home page (all sections)
+│   ├── projects/[slug]/      # Case study pages + their preview images
+│   ├── not-found.tsx         # Custom 404 page
+│   ├── opengraph-image.tsx   # Generated link-preview image
+│   ├── icon.tsx, apple-icon.tsx
+│   └── sitemap.ts, robots.ts
+├── components/
+│   ├── layout/               # Shown on every page (Navbar, Footer)
+│   ├── sections/             # Home page sections (Hero, About, ...)
+│   └── ui/                   # Reusable building blocks (Section, ChipList, ContactForm, ...)
+├── data/profile.ts           # ALL site text and content (typed)
+├── lib/                      # Shared helpers (site URL, Open Graph settings)
+└── types/index.ts            # TypeScript types for the content
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Requirements: Node.js 20+.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev        # http://localhost:3000
+```
 
-## Learn More
+Other scripts:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build      # production build
+npm run start      # serve the production build locally
+npm run lint       # ESLint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Environment variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Create `.env.local` in the project root:
 
-## Deploy on Vercel
+```bash
+# Required for the contact form (the ID from your Formspree form URL)
+NEXT_PUBLIC_FORMSPREE_ID=your_form_id
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Optional: the public site URL, used for SEO and preview links.
+# On Vercel this falls back to the project's production URL automatically.
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Without `NEXT_PUBLIC_FORMSPREE_ID` the site still works; the contact form shows a "please email me directly" message instead.
+
+## Updating content
+
+Everything shown on the site – name, intro, experience, projects, skills, awards, button labels – lives in [`src/data/profile.ts`](src/data/profile.ts), typed by [`src/types/index.ts`](src/types/index.ts). Components only render that data.
+
+- **New project:** add an entry to `projects` with a unique `slug`. Its card, case study page, preview image and sitemap entry are created automatically on the next build.
+- **Resume:** replace `public/resume.pdf`.
+
+## Deployment
+
+Pushing to `main` deploys automatically on [Vercel](https://vercel.com). Add the environment variables above under **Project → Settings → Environment Variables**, then redeploy.
